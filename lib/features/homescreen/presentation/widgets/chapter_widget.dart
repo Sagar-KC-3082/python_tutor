@@ -2,6 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:python_basics/core/extensions/build_context_extension.dart';
+import 'package:python_basics/core/local_repository/local_repository.dart';
+import 'package:python_basics/core/widgets/custom_container.dart';
 import 'package:python_basics/features/homescreen/infrastructure/entities/chapter_response.dart';
 import 'package:python_basics/features/topics/presentation/topics_screen.dart';
 
@@ -12,12 +15,14 @@ import 'package:python_basics/features/topics/presentation/topics_screen.dart';
 class ChapterWidget extends ConsumerStatefulWidget {
   const ChapterWidget({
     required this.chapterResponse,
-    required this.index,
+    required this.chapterIndex,
+    required this.userChapterIndex,
     super.key,
   });
 
   final ChapterResponse chapterResponse;
-  final int index;
+  final int chapterIndex;
+  final int userChapterIndex;
 
   @override
   ConsumerState<ChapterWidget> createState() => _ChapterWidgetState();
@@ -28,27 +33,27 @@ class _ChapterWidgetState extends ConsumerState<ChapterWidget> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          return TopicsScreen(
-            topicsList: widget.chapterResponse.topicsList,
-            chapterName: widget.chapterResponse.title,
-          );
-        }));
+        if (widget.chapterIndex > widget.userChapterIndex) {
+          context.showSnackBar('Complete the previous chapter to continue');
+        } else {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+            return TopicsScreen(
+              topicsList: widget.chapterResponse.topicsList,
+              quizList: widget.chapterResponse.quizList,
+              chapterName: widget.chapterResponse.title,
+              index: widget.chapterIndex,
+            );
+          }));
+        }
       },
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Colors.transparent,
-            border: Border.all(color: Colors.grey)),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        margin: const EdgeInsets.symmetric(vertical: 8),
+      child: CustomContainer(
         child: Row(
           children: [
             Expanded(
               child: Text(
-                '${widget.index + 1} : ${widget.chapterResponse.title}',
+                '${widget.chapterIndex + 1} : ${widget.chapterResponse.title}',
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
@@ -58,8 +63,13 @@ class _ChapterWidgetState extends ConsumerState<ChapterWidget> {
             ),
             const SizedBox(width: 8),
             Icon(
-              widget.chapterResponse.isLocked ? Icons.lock : Icons.lock_open,
+              widget.chapterIndex > widget.userChapterIndex
+                  ? Icons.lock
+                  : Icons.check_circle,
               size: 20,
+              color: widget.chapterIndex > widget.userChapterIndex
+                  ? Colors.black
+                  : Colors.green,
             )
           ],
         ),

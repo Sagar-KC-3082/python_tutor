@@ -3,16 +3,12 @@
 /// @created_at: 6/25/2024, Tuesday
 
 class TopicResponse {
-  final int id;
   final String title;
   final List<TopicIndividualSection> contentList;
-  final List<QuizResponse> quizList;
 
   TopicResponse({
-    required this.id,
     required this.title,
     required this.contentList,
-    required this.quizList,
   });
 }
 
@@ -28,6 +24,4 @@ class TopicIndividualSection {
   });
 }
 
-class QuizResponse {
 
-}

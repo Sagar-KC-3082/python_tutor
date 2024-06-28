@@ -5,15 +5,25 @@ import 'package:python_basics/features/homescreen/infrastructure/entities/topic_
 /// @created_at: 6/25/2024, Tuesday
 
 class ChapterResponse {
-  final int id;
   final String title;
-  bool isLocked;
   final List<TopicResponse> topicsList;
+  final List<QuizResponse> quizList;
 
   ChapterResponse({
-    required this.id,
     required this.title,
-    this.isLocked = true,
     required this.topicsList,
+    required this.quizList,
+  });
+}
+
+class QuizResponse {
+  final String question;
+  final int correctOptionIndex;
+  final List<String> optionList;
+
+  QuizResponse({
+    required this.question,
+    required this.correctOptionIndex,
+    required this.optionList,
   });
 }

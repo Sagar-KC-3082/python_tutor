@@ -8,12 +8,9 @@ import 'package:python_basics/features/homescreen/infrastructure/entities/topic_
 class StaticData {
   static final chapterList = [
     ChapterResponse(
-      id: 0,
       title: 'Chapter 1 - Data Types',
-      isLocked: false,
       topicsList: [
         TopicResponse(
-          id: 0,
           title: 'Introduction',
           contentList: [
             TopicIndividualSection(
@@ -34,14 +31,8 @@ class StaticData {
                   'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U',
             ),
           ],
-          quizList: [
-            QuizResponse(),
-            QuizResponse(),
-            QuizResponse(),
-          ],
         ),
         TopicResponse(
-          id: 1,
           title: 'String',
           contentList: [
             TopicIndividualSection(
@@ -61,14 +52,8 @@ class StaticData {
               imageUrl: 'https://picsum.photos/seed/picsum/200/300',
             ),
           ],
-          quizList: [
-            QuizResponse(),
-            QuizResponse(),
-            QuizResponse(),
-          ],
         ),
         TopicResponse(
-          id: 2,
           title: 'Theory',
           contentList: [
             TopicIndividualSection(
@@ -88,21 +73,42 @@ class StaticData {
               imageUrl: 'https://picsum.photos/seed/picsum/200/300',
             ),
           ],
-          quizList: [
-            QuizResponse(),
-            QuizResponse(),
-            QuizResponse(),
-          ],
         ),
+      ],
+      quizList: [
+        QuizResponse(
+            question: 'What is Computer ? ',
+            correctOptionIndex: 0,
+            optionList: [
+              'Electronic Device',
+              'Mechanical Device',
+              'Water Device',
+              'Farming Device',
+            ]),
+        QuizResponse(
+            question: 'What is Data Types ? ',
+            correctOptionIndex: 0,
+            optionList: [
+              'Coding Basics',
+              'Hardware',
+              'Software',
+              'Quality Assurance tool',
+            ]),
+        QuizResponse(
+            question: 'What is CPU ? ',
+            correctOptionIndex: 3,
+            optionList: [
+              'Mechanical Device',
+              'Water Device',
+              'Farming Device',
+              'Electronic Device',
+            ]),
       ],
     ),
     ChapterResponse(
-      id: 1,
-      isLocked: true,
       title: 'Chapter 2 - Loops',
       topicsList: [
         TopicResponse(
-          id: 0,
           title: 'Concepts',
           contentList: [
             TopicIndividualSection(
@@ -122,14 +128,8 @@ class StaticData {
               imageUrl: 'https://picsum.photos/seed/picsum/200/300',
             ),
           ],
-          quizList: [
-            QuizResponse(),
-            QuizResponse(),
-            QuizResponse(),
-          ],
         ),
         TopicResponse(
-          id: 1,
           title: 'String',
           contentList: [
             TopicIndividualSection(
@@ -149,21 +149,42 @@ class StaticData {
               imageUrl: 'https://placehold.jp/150x150.png',
             ),
           ],
-          quizList: [
-            QuizResponse(),
-            QuizResponse(),
-            QuizResponse(),
-          ],
         ),
+      ],
+      quizList: [
+        QuizResponse(
+            question: 'What is Computer ? ',
+            correctOptionIndex: 0,
+            optionList: [
+              'Electronic Device',
+              'Mechanical Device',
+              'Water Device',
+              'Farming Device',
+            ]),
+        QuizResponse(
+            question: 'What is Data Types ? ',
+            correctOptionIndex: 0,
+            optionList: [
+              'Coding Basics',
+              'Hardware',
+              'Software',
+              'Quality Assurance tool',
+            ]),
+        QuizResponse(
+            question: 'What is CPU ? ',
+            correctOptionIndex: 3,
+            optionList: [
+              'Mechanical Device',
+              'Water Device',
+              'Farming Device',
+              'Electronic Device',
+            ]),
       ],
     ),
     ChapterResponse(
-      id: 2,
-      isLocked: true,
       title: 'Chapter 3 - Recursions',
       topicsList: [
         TopicResponse(
-          id: 0,
           title: 'Basic Idea and Principles',
           contentList: [
             TopicIndividualSection(
@@ -183,14 +204,8 @@ class StaticData {
               imageUrl: 'https://picsum.photos/seed/picsum/200/300',
             ),
           ],
-          quizList: [
-            QuizResponse(),
-            QuizResponse(),
-            QuizResponse(),
-          ],
         ),
         TopicResponse(
-          id: 1,
           title: 'String',
           contentList: [
             TopicIndividualSection(
@@ -210,12 +225,36 @@ class StaticData {
               imageUrl: 'https://picsum.photos/seed/picsum/200/300',
             ),
           ],
-          quizList: [
-            QuizResponse(),
-            QuizResponse(),
-            QuizResponse(),
-          ],
         ),
+      ],
+      quizList: [
+        QuizResponse(
+            question: 'What is Computer ? ',
+            correctOptionIndex: 0,
+            optionList: [
+              'Electronic Device',
+              'Mechanical Device',
+              'Water Device',
+              'Farming Device',
+            ]),
+        QuizResponse(
+            question: 'What is Data Types ? ',
+            correctOptionIndex: 0,
+            optionList: [
+              'Coding Basics',
+              'Hardware',
+              'Software',
+              'Quality Assurance tool',
+            ]),
+        QuizResponse(
+            question: 'What is CPU ? ',
+            correctOptionIndex: 3,
+            optionList: [
+              'Mechanical Device',
+              'Water Device',
+              'Farming Device',
+              'Electronic Device',
+            ]),
       ],
     ),
   ];

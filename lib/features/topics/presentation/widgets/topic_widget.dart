@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:python_basics/core/widgets/custom_container.dart';
 
 import '../../../homescreen/infrastructure/entities/topic_response.dart';
 
@@ -19,14 +20,8 @@ class TopicWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-      child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Colors.transparent,
-            border: Border.all(color: Colors.grey)),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        margin: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: CustomContainer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -43,10 +38,10 @@ class TopicWidget extends ConsumerWidget {
             if (contentInfo.description != null)
               Text(
                 contentInfo.description ?? '',
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black.withOpacity(0.8)),
               ),
             if (contentInfo.imageUrl != null)
               Padding(
